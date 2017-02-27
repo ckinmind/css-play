@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import './aside.scss';
 
 class Aside extends React.Component {
 
@@ -8,6 +7,9 @@ class Aside extends React.Component {
         return (
             <aside className="app-aside">
                 <ul className="menu-ul">
+                    <li><Link to="/triangle">三角型</Link></li>
+                    <li><Link to="/scrollbar">ScrollBar</Link></li>
+                    <li><Link to="/triangle">三角型</Link></li>
                     <li><Link to="/triangle">三角型</Link></li>
                 </ul>
             </aside>

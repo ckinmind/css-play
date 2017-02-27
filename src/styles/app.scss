@@ -3,6 +3,12 @@ body {
     margin: 0;
 }
 
+a {
+    color: #3273dc;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 
 .app-main {
     min-height: 100vh;
@@ -11,14 +17,9 @@ body {
 
 
 .app-aside {
-    flex: 0 0 20vh;
+    flex: 0 0 25vh;
     box-shadow: 0 0 1rem rgba(0,0,0,0.1);
-    //background: #fff;
-    background: red;
-
-    //align-items: stretch;
-    //flex-direction: column;
-    //justify-content: flex-start;
+    background: #fff;
 
     .menu-ul {
         list-style: none;
