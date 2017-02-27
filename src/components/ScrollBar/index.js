@@ -5,14 +5,10 @@ class ScrollBar extends Component {
     constructor(props) {
         super(props);
         this.pos = null;
-        this.scrollPos = 100;
+        this.scrollPos = this.props.initValue;  /*初始值，需要父组件传入，但是有默认值*/
         this.state = {
             length: this.scrollPos
         }
-    }
-
-    handleMouseDown(e){
-        this.pos = e.clientX;
     }
 
     handleMouseMove(e){
@@ -23,11 +19,11 @@ class ScrollBar extends Component {
 
         this.scrollPos += e.clientX - this.pos;
         this.pos = e.clientX;
-        this.scrollPos = Math.max(0, this.scrollPos); /* 左右移动过程中会导致计算的值有负值情况*/
-        this.scrollPos = Math.min(490, this.scrollPos);
+        this.scrollPos = Math.max(0, this.scrollPos);    /* 边界情况：左边界，左右移动过程中会导致计算的值有负值情况*/
+        this.scrollPos = Math.min(490, this.scrollPos);  /* 有边界，但是一般不太会发生，因为超出scroll范围会触发onMouseLeave*/
 
         this.refs.scrollbar.style.width = this.scrollPos + 'px';
-        this.refs.scrollhandle.style.left = (this.scrollPos - 6) + 'px'; /* 6是小圆圈的大小*/
+        this.refs.scrollhandle.style.left = (this.scrollPos - 6) + 'px'; /* 6是小圆圈的直径*/
         this.setState({length: this.scrollPos});
     }
 
@@ -40,13 +36,14 @@ class ScrollBar extends Component {
                      onMouseUp={()=>this.pos = null}
                      onMouseLeave={()=>this.pos = null}
                 >
+                    <div className="title">标题说明</div>
                     <div className="scroll-bg">
                         <div className="scroll-bar" ref="scrollbar"></div>
-                        <div className="scroll-handle"  ref="scrollhandle"  onMouseDown={this.handleMouseDown.bind(this)} ></div>
+                        <div className="scroll-handle"  ref="scrollhandle"  onMouseDown={(e)=>this.pos = e.clientX}></div>
                     </div>
-                </div>
-                <div className="distance">
-                    <p>{this.state.length}</p>
+                    <div className="scroll-value">
+                        <p>{this.state.length}</p>
+                    </div>
                 </div>
             </div>
         );
@@ -54,6 +51,17 @@ class ScrollBar extends Component {
 }
 
 export  default ScrollBar;
+
+ScrollBar.propTypes  = {
+    title: React.PropTypes.string.isRequired,
+    initValue: React.PropTypes.number.isRequired
+};
+
+ScrollBar.defaultProps = {
+    title: 'Scroll',
+    initValue: 100
+};
+
 
 /***
  *  1. 在scroll上触发
