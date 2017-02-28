@@ -33,7 +33,7 @@ Slider2.propTypes  = {
     name: React.PropTypes.string.isRequired,
     value: React.PropTypes.number.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    getValue: React.PropTypes.func
+    getValue: React.PropTypes.func.isRequired
 };
 
 Slider2.defaultProps = {
