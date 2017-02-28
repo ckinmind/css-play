@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './scrollbar.scss';
+import './slider1.scss';
 
-class ScrollBar extends Component {
+class Slider1 extends Component {
     constructor(props) {
         super(props);
         this.pos = null;
@@ -50,7 +50,7 @@ class ScrollBar extends Component {
     }
 }
 
-export  default ScrollBar;
+export  default Slider1;
 
 ScrollBar.propTypes  = {
     title: React.PropTypes.string.isRequired,
@@ -58,7 +58,7 @@ ScrollBar.propTypes  = {
 };
 
 ScrollBar.defaultProps = {
-    title: 'Scroll',
+    title: 'Slider',
     initValue: 100
 };
 

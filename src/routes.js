@@ -3,7 +3,8 @@ import { Route, Router, hashHistory, IndexRoute} from 'react-router';
 import Aside from './components/common/Aside';
 import HomePage from './components/HomePage/HomePage';
 import Triangle from './components/Triangle';
-import ScrollBar from './components/ScrollBar';
+
+import SliderPage from './components/SliderPage';
 
 
 
@@ -22,7 +23,7 @@ export default () => (
         <Route path="/" component={App}>
             <IndexRoute component={HomePage}/>
             <Route path="triangle" component={Triangle}/>
-            <Route path="scrollbar" component={ScrollBar}/>
+            <Route path="sliderpage" component={SliderPage}/>
         </Route>
     </Router>
 );
