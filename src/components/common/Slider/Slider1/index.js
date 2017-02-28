@@ -50,17 +50,19 @@ class Slider1 extends Component {
     }
 }
 
-export  default Slider1;
-
-ScrollBar.propTypes  = {
+Slider1.propTypes  = {
     title: React.PropTypes.string.isRequired,
     initValue: React.PropTypes.number.isRequired
 };
 
-ScrollBar.defaultProps = {
+Slider1.defaultProps = {
     title: 'Slider',
     initValue: 100
 };
+
+export  default Slider1;
+
+
 
 
 /***

@@ -11,8 +11,8 @@ class Slider2 extends React.Component {
     }
 
     handleChange(e){
-        this.setState({
-            value: e.target.value
+        this.setState({value: e.target.value}, ()=>{
+            this.props.getValue(this.state.value);
         });
     }
 
@@ -32,13 +32,13 @@ class Slider2 extends React.Component {
 Slider2.propTypes  = {
     name: React.PropTypes.string.isRequired,
     value: React.PropTypes.number.isRequired,
-    onChange: React.PropTypes.func.isRequired
+    onChange: React.PropTypes.func.isRequired,
+    getValue: React.PropTypes.func
 };
 
 Slider2.defaultProps = {
-    name: 'test',
-    value: 50,
-    onChange: ()=>{console.log('123');}
+    name: 'Slider2',
+    value: 50
 };
 
 
