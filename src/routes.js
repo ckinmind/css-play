@@ -4,6 +4,7 @@ import { Route, Router, hashHistory, IndexRoute} from 'react-router';
 /** 组件*/
 import Slider1 from './components/Slider1';
 import Slider2 from './components/Slider2';
+import Dropdown from './components/Dropdown';
 
 /** 页面*/
 import Aside from './page/common/Aside';
@@ -27,6 +28,7 @@ export default () => (
             <IndexRoute component={HomePage}/>
             <Route path="slider1" component={Slider1}/>
             <Route path="slider2" component={Slider2}/>
+            <Route path="dropdown" component={Dropdown}/>
 
             <Route path="triangle-page" component={Triangle}/>
         </Route>
