@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './triangle.scss';
-import Slider2 from '../common/Slider/Slider2';
+import './TrianglePage.scss';
+import Slider2 from '../../components/Slider2';
 
 class Triangle extends Component {
     constructor(props) {

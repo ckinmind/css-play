@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './HomePage.scss';
 
 class HomePage extends Component {
@@ -8,7 +7,7 @@ class HomePage extends Component {
   }
 
   render() {
-    return <div>Home Page111111111111111111111111111111111111111S</div>;
+    return <div>This is Home page</div>;
   }
 }
 

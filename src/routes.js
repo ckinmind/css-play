@@ -1,11 +1,14 @@
 import React from 'react';
 import { Route, Router, hashHistory, IndexRoute} from 'react-router';
-import Aside from './components/common/Aside';
-import HomePage from './components/HomePage/HomePage';
-import Triangle from './components/Triangle';
 
-import SliderPage from './components/SliderPage';
+/** 组件*/
+import Slider1 from './components/Slider1';
+import Slider2 from './components/Slider2';
 
+/** 页面*/
+import Aside from './page/common/Aside';
+import HomePage from './page/HomePage/HomePage';
+import Triangle from './page/TrianglePage';
 
 
 const App = ({ children }) => (
@@ -22,8 +25,10 @@ export default () => (
     <Router history={hashHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={HomePage}/>
-            <Route path="triangle" component={Triangle}/>
-            <Route path="sliderpage" component={SliderPage}/>
+            <Route path="slider1" component={Slider1}/>
+            <Route path="slider2" component={Slider2}/>
+
+            <Route path="triangle-page" component={Triangle}/>
         </Route>
     </Router>
 );
