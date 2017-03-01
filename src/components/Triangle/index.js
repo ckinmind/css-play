@@ -33,7 +33,7 @@ class Triangle extends Component {
                 <div className="caret-box">
                     <div className="caret" style={style}></div>
                 </div>
-                <div className="content markdown-body" dangerouslySetInnerHTML={{__html: JSON.stringify(style)}} ></div>
+                <code className="content markdown-body" dangerouslySetInnerHTML={{__html: JSON.stringify(style)}} ></code>
               </div>
         );
     }
