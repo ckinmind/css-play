@@ -11,6 +11,7 @@ class Aside extends React.Component {
                     <li><Link to="/slider1">Slider1</Link></li>
                     <li><Link to="/slider2">Slider2</Link></li>
                     <li><Link to="/dropdown">Dropdown</Link></li>
+                    <li><Link to="/switch">Switch</Link></li>
                 </ul>
                 <h3>页面</h3>
                 <ul className="menu-ul">
