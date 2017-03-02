@@ -47,7 +47,7 @@ Switch.propTypes = {
 Switch.defaultProps = {
     initValue: true,
     height: '32px',
-    width: '380px',
+    width: '80px',
     trueText: 'ON',
     falseText: 'OFF'
 };
