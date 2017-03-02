@@ -81,14 +81,14 @@ class Switch extends React.Component{
 }
 
 Switch.propTypes = {
-    height: React.PropTypes.number.isRequred,
-    width: React.PropTypes.number.isRequred,
+    height: React.PropTypes.number.isRequired,
+    width: React.PropTypes.number.isRequired,
     emitSelected: React.PropTypes.func
 };
 
 Switch.defaultProps = {
-    height: '32px',
-    width: '80px'
+    height: 32,
+    width: 80
 };
 
 export default Switch;
