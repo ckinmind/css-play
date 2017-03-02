@@ -1,4 +1,5 @@
 import React from 'react';
+import './Switch.scss';
 
 
 class Switch extends React.Component{
@@ -6,74 +7,28 @@ class Switch extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            selected: false
+            selected: this.props.initValue
         };
-    }
-
-    getStyles() {
-        let styles = {
-            toggle: {
-                backgroundColor: this.state.selected ? '#ced2d2' : '#0aa5a3',
-                color: '#fff',
-                float: 'right',
-                fontSize: '14px',
-                padding: 0,
-                textAlign: 'center',
-                width: '50%',
-                transition: 'all 400ms ease-out'
-            },
-
-            background: {
-                background: '#fff',
-                width: '50%',
-                margin: 0,
-                position: 'absolute',
-                top: 0,
-                right: this.state.selected ? 'calc(100% - ' + (this.props.width - 2) / 2 + 'px)' : '0',
-                bottom: 0,
-                transition: 'all 200ms ease-in-out'
-            },
-
-            switch: {
-                display: 'inline-block',
-                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                fontWeight: 300,
-                width: this.props.width,
-            },
-
-            outer: {
-                cursor: 'pointer',
-                color: '#fff',
-                border: '1px solid #b8bfbf',
-                borderRadius: '3px',
-                display: 'block',
-                lineHeight: this.props.height + 'px',
-                overflow: 'hidden',
-                padding: 0,
-                position: 'relative',
-                textTransform: 'uppercase',
-            }
-        };
-
-        return styles;
     }
 
     handleToggle() {
-        this.setState({ selected: !this.state.selected });
-        if (this.props.emitSelected) {
-            this.props.emitSelected(this.state.selected);
-        }
+        this.setState({
+            selected: !this.state.selected
+        },()=>{
+            if (this.props.getValue) {  /* 有该方法再执行回调，用于上级组件获取到变化的值*/
+                this.props.getValue(this.state.selected);
+            }
+        });
     }
 
     render() {
-        let styles = this.getStyles();
 
         return(
-            <div onClick={ this.handleToggle.bind(this) } style={ styles.switch }>
-                <div style={ styles.outer }>
-                    <div style={ styles.toggle }>Off</div>
-                    <div style={ styles.toggle }>On</div>
-                    <div style={ styles.background }></div>
+            <div onClick={ this.handleToggle.bind(this) }  className="switch" style={{width: this.props.width}}>
+                <div style={{lineHeight: this.props.height}}  className="outer">
+                    <div  className="toggle toggle-true">{this.props.trueText}</div>
+                    <div  className="toggle toggle-false">{this.props.falseText}</div>
+                    <div style={{left: this.state.selected ? '50%' : 0}} className="cover"></div>
                 </div>
             </div>
         );
@@ -81,14 +36,20 @@ class Switch extends React.Component{
 }
 
 Switch.propTypes = {
-    height: React.PropTypes.number.isRequired,
-    width: React.PropTypes.number.isRequired,
-    emitSelected: React.PropTypes.func
+    initValue: React.PropTypes.bool.isRequired,      /* 初始显示状态，true或者false*/
+    height: React.PropTypes.string.isRequired,       /* switch高度*/
+    width: React.PropTypes.string.isRequired,        /* switch宽度*/
+    trueText: React.PropTypes.string.isRequired,     /* 正确时显示的文本*/
+    falseText: React.PropTypes.string.isRequired,    /* 错误时显示的文本*/
+    getValue: React.PropTypes.func                   /* 父组件的回调，用于获取当前的状态*/
 };
 
 Switch.defaultProps = {
-    height: 32,
-    width: 80
+    initValue: true,
+    height: '32px',
+    width: '380px',
+    trueText: 'ON',
+    falseText: 'OFF'
 };
 
 export default Switch;
