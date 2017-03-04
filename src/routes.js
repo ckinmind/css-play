@@ -11,7 +11,7 @@ import Switch from './components/Switch';
 import Aside from './page/common/Aside';
 import HomePage from './page/HomePage/HomePage';
 import Triangle from './page/TrianglePage';
-
+import NoticeTest from './page/NoticeTest';
 
 const App = ({ children }) => (
     <div className="app-main">
@@ -33,6 +33,7 @@ export default () => (
             <Route path="switch" component={Switch}/>
 
             <Route path="triangle-page" component={Triangle}/>
+            <Route path="notification" component={NoticeTest}/>
         </Route>
     </Router>
 );
