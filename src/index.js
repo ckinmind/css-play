@@ -1,7 +1,6 @@
-import 'core-js/fn/object/assign';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/Main';
+import { render } from 'react-dom';
+import Route from './routes';
+import './styles/app.scss';
 
-// Render the main component into the dom
-ReactDOM.render(<App />, document.getElementById('app'));
+render(<Route />, document.getElementById('app'));

@@ -1,0 +1,46 @@
+body {
+    padding:0;
+    margin: 0;
+}
+
+a {
+    color: #3273dc;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.app-main {
+    min-height: 100vw;
+    display: flex;
+}
+
+
+.app-aside {
+    flex: 0 0 16vw;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+    background: #fff;
+
+    h3 {
+        text-align: center;
+        background-color: black;
+        color: white;
+        margin: 0;
+        line-height: 50px
+    }
+
+    .menu-ul {
+        list-style: none;
+
+        li{
+            line-height: 25px;
+            display: list-item;
+        }
+    }
+}
+
+
+.app-content {
+    width: 100%;
+    padding: 40px;
+}
