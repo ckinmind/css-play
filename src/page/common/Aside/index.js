@@ -5,19 +5,15 @@ class Aside extends React.Component {
 
     render() {
         return (
-            <aside className="app-aside">
-                <h3>公共组件</h3>
-                <ul className="menu-ul">
-                    <li><Link to="/slider1">Slider1</Link></li>
-                    <li><Link to="/slider2">Slider2</Link></li>
-                    <li><Link to="/dropdown">Dropdown</Link></li>
-                    <li><Link to="/switch">Switch</Link></li>
-                    <li><Link to="/notification">Notification</Link></li>
-                </ul>
-                <h3>页面</h3>
-                <ul className="menu-ul">
-                    <li><Link to="/triangle-page">Triangle</Link></li>
-                </ul>
+            <aside className="app-sidebar">
+                <nav>
+                    <Link to="/slider1"       activeClassName="active">Slider1</Link>
+                    <Link to="/slider2"       activeClassName="active">Slider2</Link>
+                    <Link to="/dropdown"      activeClassName="active">Dropdown</Link>
+                    <Link to="/switch"        activeClassName="active">Switch</Link>
+                    <Link to="/notification"  activeClassName="active">Notification</Link>
+                    <Link to="/triangle-page" activeClassName="active">Triangle</Link>
+                </nav>
             </aside>
         )
     }

@@ -14,12 +14,12 @@ import Triangle from './page/TrianglePage';
 import NoticeTest from './page/NoticeTest';
 
 const App = ({ children }) => (
-    <div className="app-main">
+     <div className="app-wrap">
        <Aside />
         <div className="app-content">
             {children}
         </div>
-    </div>
+     </div>
 );
 
 
